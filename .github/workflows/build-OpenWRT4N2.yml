@@ -97,7 +97,7 @@ jobs:
         CONFIG_FILE: '.img/n1config' 
         DIY_SH: '.img/diy.sh'
       run: |
-        [ -e files ] && mv .img/files openwrt/files
+        [ -e .img/files ] && mv .img/files openwrt/files
         
         cp -f .img/N1-uboot.bin openwrt/files/etc/uboot.bin
         cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/{system.lua,tony.lua} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/
