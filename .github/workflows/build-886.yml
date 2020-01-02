@@ -7,7 +7,7 @@
 #=================================================
 
 #name: OpenWrt WR703N OpenVPN SSR
-name: OpenWRT for N2_mini
+name: OpenWRT for WR886N
 
 
 on: 
@@ -72,7 +72,7 @@ jobs:
 
           ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
           sed -i '/tl-wr886n-v2/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
-          sed -i 's/R9.12.03/by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
+          #sed -i 's/R9.12.03/by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
           sed -i 's/192.168.1.1/192.168.3.2/' package\/base-files\/files\/bin\/config_generate
           ##sed -i 's/WDR7400/WDR7600' package\/base-files\/files\/bin\/config_generate
           sed -i 's/OpenWrt/WR886N/' package\/base-files\/files\/bin\/config_generate
@@ -106,7 +106,8 @@ jobs:
         cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/
         cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/
         cp -f .img/lucifiles/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/{footer.htm,header.htm}  openwrt/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/
-        cp -f .img/lucifiles/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/
+        #cp -f .img/lucifiles/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/
+        cp -f .img/lucifiles/package/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/luci-app-ssr-plus/luasrc/view/shadowsocksr/
         cp -f .img/lucifiles/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c  openwrt/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c
         cp -f .img/lucifiles/feeds/luci/modules/luci-base/luasrc/model/firewall.lua  openwrt/feeds/luci/modules/luci-base/luasrc/model/firewall.lua
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
