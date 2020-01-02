@@ -23,7 +23,7 @@ on:
 #  watch:
 #    types: [started]
   watch:
-    types: [unstarted]
+    types: [started]
 
 jobs:
   build:
