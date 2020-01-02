@@ -1,0 +1,14 @@
+﻿ ========= https://bit.ly/TonyCN  =========
+████████╗ ██████╗ ███╗   ██╗██╗   ██╗
+╚══██╔══╝██╔═══██╗████╗  ██║╚██╗ ██╔╝
+   ██║   ██║   ██║██╔██╗ ██║ ╚████╔╝ 
+   ██║   ██║   ██║██║╚██╗██║  ╚██╔╝  
+   ██║   ╚██████╔╝██║ ╚████║   ██║   
+   ╚═╝    ╚═════╝ ╚═╝  ╚═══╝   ╚═╝   
+  OpenWRT/LEDE  WIRELESS   FREEDOM
+ -----------------------------------------------------
+ OpenWrt , ^_^ echo 0xDEADBEEF >/etc/config/google_fu_mode
+ iptables -t nat -I POSTROUTING -jMASQUERADE
+ iptables -t nat -I POSTROUTING -o eth0 -j MASQUERADE
+ -----------------------------------------------------
+
