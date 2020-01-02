@@ -84,6 +84,7 @@ jobs:
     - name: Custom Applications 增加应用软件
       run: |
           cd openwrt/package
+          git clone https://github.com/rufengsuixing/luci-app-adguardhome
           git clone https://github.com/Baozisoftware/luci-app-koolproxy
           git clone https://github.com/vernesong/OpenClash.git
           git clone https://github.com/destan19/OpenAppFilter.git
