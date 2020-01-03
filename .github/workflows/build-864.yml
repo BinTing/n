@@ -7,8 +7,8 @@
 #=================================================
 
 #name: OpenWrt WR703N OpenVPN SSR
-name: OpenWRT for WR886N
-
+#name: OpenWRT for N2_mini
+name: OpenWRT for 864
 
 on: 
   release:
@@ -22,8 +22,8 @@ on:
 #    - cron: 0 8 * * 5
 #  watch:
 #    types: [started]
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -55,8 +55,8 @@ jobs:
        ## REPO_URL: https://github.com/coolsnowwolf/lede
        ## REPO_URL: https://github.com/openwrt/openwrt
        ## REPO_URL: https://github.com/openwrt/openwrt
-         REPO_URL: https://github.com/a520ass/openwrt
-       ## REPO_URL: https://github.com/coolsnowwolf/lede
+       ## REPO_URL: https://github.com/a520ass/openwrt
+         REPO_URL: https://github.com/coolsnowwolf/lede
          REPO_BRANCH: master
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
@@ -71,17 +71,20 @@ jobs:
           cd openwrt
 
           ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
-          sed -i '/tl-wr886n-v2/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
-          # sed -i 's/R9.12.03/by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
-          sed -i 's/192.168.1.1/192.168.3.2/' package\/base-files\/files\/bin\/config_generate
+          sed -i '/tl-wr703n-v1/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
+          sed -i 's/R9.12.31/by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
+          #sed -i 's/unameinfo.release/"Amlogic-N1-2020"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          sed -i 's/pcdata(ver.luciversion)/"2020-01-03"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          sed -i 's/192.168.1.1/192.168.2.1/' package\/base-files\/files\/bin\/config_generate
           ##sed -i 's/WDR7400/WDR7600' package\/base-files\/files\/bin\/config_generate
-          sed -i 's/OpenWrt/WR886N/' package\/base-files\/files\/bin\/config_generate
-          sed -i 's/.ssid=OpenWrt/.ssid=WR886N-WiFi/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
+          sed -i 's/OpenWrt/OpenWRT/' package\/base-files\/files\/bin\/config_generate
+          sed -i 's/.ssid=OpenWrt/.ssid=OpenWRT-WiFi/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
           sed -i 's/.encryption=none/.encryption=psk2\n	    		set wireless.default_radio\${devidx}.key=password\n/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
       
     - name: Custom Applications 增加应用软件
       run: |
           cd openwrt/package
+          git clone https://github.com/rufengsuixing/luci-app-adguardhome
           git clone https://github.com/Baozisoftware/luci-app-koolproxy
           git clone https://github.com/vernesong/OpenClash.git
           git clone https://github.com/destan19/OpenAppFilter.git
@@ -91,25 +94,26 @@ jobs:
           
     - name: Load custom configuration 加载自定义编译配置文件
       env:
-        CONFIG_FILE: '.config'
+       # CONFIG_FILE: '.config'
        # CONFIG_FILE: 'OpenWRT-N1.config'  
        # CONFIG_FILE: '.config'   
-       # CONFIG_FILE: '.img/n1config' 
+        CONFIG_FILE: '.img/864config' 
         DIY_SH: '.img/diy.sh'
       run: |
         [ -e .img/files ] && mv .img/files openwrt/files
-        rm -rf openwrt/files/www/luci-static/resources/pictures
         
-        cp -f .img/breed-wr886n.bin openwrt/files/etc/uboot.bin
-        #cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/{system.lua,tony.lua} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/
-        #cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/{flashops.htm,reboot.htm} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/
-        #cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/
-        #cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/
-        #cp -f .img/lucifiles/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/{footer.htm,header.htm}  openwrt/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/
-        #cp -f .img/lucifiles/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/
-        #cp -f .img/lucifiles/package/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/luci-app-ssr-plus/luasrc/view/shadowsocksr/
-        #cp -f .img/lucifiles/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c  openwrt/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c
-        #cp -f .img/lucifiles/feeds/luci/modules/luci-base/luasrc/model/firewall.lua  openwrt/feeds/luci/modules/luci-base/luasrc/model/firewall.lua
+        #cp -f .img/N1-uboot.bin openwrt/files/etc/uboot.bin
+        cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/{system.lua,tony.lua} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/
+        cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/{flashops.htm,reboot.htm} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/
+        cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/
+        cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/
+        cp -f .img/lucifiles/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/{footer.htm,header.htm}  openwrt/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/
+        cp -f .img/lucifiles/package/lean/luci-theme-argon/htdocs/luci-static/argon/{favicon.ico,logo.png,tony.gif}  openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/
+        cp -f .img/lucifiles/package/lean/luci-theme-argon/htdocs/luci-static/argon/css/style.css  openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/css/
+        cp -f .img/lucifiles/package/lean/luci-theme-argon/luasrc/view/themes/argon/{footer.htm,header.htm}  openwrt/package/lean/luci-theme-argon/luasrc/view/themes/argon/
+        cp -f .img/lucifiles/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/
+        cp -f .img/lucifiles/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c  openwrt/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c
+        cp -f .img/lucifiles/feeds/luci/modules/luci-base/luasrc/model/firewall.lua  openwrt/feeds/luci/modules/luci-base/luasrc/model/firewall.lua
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_SH
         cd openwrt
@@ -151,19 +155,19 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: WR886N_packages
+        name: 864_packages
         path: openwrt/bin
 
     - name: Upload .config file 组织要上传.config配置文件
       run: |
            mkdir -p openwrt/artifact
-           cp openwrt/.config openwrt/artifact/WR886Nconfig
+           cp openwrt/.config openwrt/artifact/864config
            
     - name: Upload .config file 上传编译配置文件
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: N1config
+        name: 864config
         path: openwrt/artifact
 
     - name: Organize files 组织要上传的文件
@@ -177,6 +181,6 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: WR886N_firmware
+        name: 864_firmware
         path: ${{ env.FIRMWARE }}
           
