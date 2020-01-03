@@ -22,8 +22,8 @@ on:
 #    - cron: 0 8 * * 5
 #  watch:
 #    types: [started]
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -110,6 +110,7 @@ jobs:
         cp -f .img/lucifiles/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/{footer.htm,header.htm}  openwrt/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/
         cp -f .img/lucifiles/package/lean/luci-theme-argon/htdocs/luci-static/argon/{favicon.ico,logo.png,tony.gif}  openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/
         cp -f .img/lucifiles/package/lean/luci-theme-argon/htdocs/luci-static/argon/css/style.css  openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/css/
+        cp -f .img/lucifiles/package/lean/luci-theme-argon/luasrc/view/themes/argon/{footer.htm,header.htm}  openwrt/package/lean/luci-theme-argon/luasrc/view/themes/argon/
         cp -f .img/lucifiles/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/
         cp -f .img/lucifiles/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c  openwrt/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c
         cp -f .img/lucifiles/feeds/luci/modules/luci-base/luasrc/model/firewall.lua  openwrt/feeds/luci/modules/luci-base/luasrc/model/firewall.lua
