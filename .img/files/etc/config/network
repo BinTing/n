@@ -21,7 +21,3 @@ config interface 'lan'
 config interface 'vpn0'
 	option ifname 'tun0'
 	option proto 'none'
-
-config interface 'wwan'
-	option proto 'dhcp'
-

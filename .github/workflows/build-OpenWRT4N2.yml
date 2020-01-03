@@ -108,6 +108,8 @@ jobs:
         cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/
         cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/
         cp -f .img/lucifiles/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/{footer.htm,header.htm}  openwrt/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/
+        cp -f .img/lucifiles/package/lean/luci-theme-argon/htdocs/luci-static/argon/{favicon.ico,logo.png,tony.gif}  openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/
+        cp -f .img/lucifiles/package/lean/luci-theme-argon/htdocs/luci-static/argon/css/style.css  openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/css/
         cp -f .img/lucifiles/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/
         cp -f .img/lucifiles/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c  openwrt/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c
         cp -f .img/lucifiles/feeds/luci/modules/luci-base/luasrc/model/firewall.lua  openwrt/feeds/luci/modules/luci-base/luasrc/model/firewall.lua
@@ -152,7 +154,7 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: N1_packages
+        name: N2_packages
         path: openwrt/bin
 
     - name: Upload .config file 组织要上传.config配置文件
@@ -164,7 +166,7 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: N1config
+        name: N2config
         path: openwrt/artifact
 
     - name: Organize files 组织要上传的文件
