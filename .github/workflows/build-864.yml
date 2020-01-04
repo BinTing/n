@@ -97,7 +97,7 @@ jobs:
        # CONFIG_FILE: '.config'
        # CONFIG_FILE: 'OpenWRT-N1.config'  
        # CONFIG_FILE: '.config'   
-        CONFIG_FILE: '.img/864config' 
+        CONFIG_FILE: '.img/X864config' 
         DIY_SH: '.img/diy.sh'
       run: |
         [ -e .img/files ] && mv .img/files openwrt/files
