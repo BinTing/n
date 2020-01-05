@@ -7,8 +7,8 @@
 #=================================================
 
 #name: OpenWrt WR703N OpenVPN SSR
-name: OpenWRT for N2_mini
-
+#name: OpenWRT for N2_mini
+name: OpenWRT for N2-mini
 
 on: 
   release:
@@ -97,7 +97,8 @@ jobs:
        # CONFIG_FILE: '.config'
        # CONFIG_FILE: 'OpenWRT-N1.config'  
        # CONFIG_FILE: '.config'   
-        CONFIG_FILE: '.img/n1config' 
+       # CONFIG_FILE: '.img/n1config' 
+        CONFIG_FILE: '.img/n1miniconfig' 
         DIY_SH: '.img/diy.sh'
       run: |
         [ -e .img/files ] && mv .img/files openwrt/files
@@ -161,7 +162,7 @@ jobs:
     - name: Upload .config file 组织要上传.config配置文件
       run: |
            mkdir -p openwrt/artifact
-           cp openwrt/.config openwrt/artifact/n1config
+           cp openwrt/.config openwrt/artifact/n1miniconfig
            
     - name: Upload .config file 上传编译配置文件
       uses: actions/upload-artifact@master
