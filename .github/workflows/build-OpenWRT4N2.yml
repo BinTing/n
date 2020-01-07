@@ -8,7 +8,8 @@
 
 #name: OpenWrt WR703N OpenVPN SSR
 #name: OpenWRT for N2_mini
-name: OpenWRT for N2-Nano
+#name: OpenWRT for N2-Nano
+name: OpenWRT for N2-JingJian
 
 on: 
   release:
@@ -162,13 +163,13 @@ jobs:
     - name: Upload .config file 组织要上传.config配置文件
       run: |
            mkdir -p openwrt/artifact
-           cp openwrt/.config openwrt/artifact/n1miniconfig
+           cp openwrt/.config openwrt/artifact/n1miniconfigJingJian
            
     - name: Upload .config file 上传编译配置文件
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: N2config
+        name: N2configJingJian
         path: openwrt/artifact
 
     - name: Organize files 组织要上传的文件
@@ -182,6 +183,6 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: N2_firmware
+        name: N2_firmwareJingJian
         path: ${{ env.FIRMWARE }}
           
