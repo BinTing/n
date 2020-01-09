@@ -8,7 +8,9 @@
 
 #name: OpenWrt WR703N OpenVPN SSR
 #name: OpenWRT for N2_mini
-name: OpenWRT for X86 N270
+#name: OpenWRT for X86 N270
+name: OpenWRT for X86
+
 
 on: 
   release:
@@ -74,7 +76,8 @@ jobs:
           sed -i '/tl-wr703n-v1/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
           sed -i 's/R9.12.31/by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
           #sed -i 's/unameinfo.release/"Amlogic-N1-2020"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-          sed -i 's/pcdata(ver.luciversion)/"2020-01-08"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          sed -i 's/pcdata(ver.luciname)/"软路由"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          sed -i 's/pcdata(ver.luciversion)/"2020-01-09"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
           sed -i 's/192.168.1.1/192.168.2.1/' package\/base-files\/files\/bin\/config_generate
           ##sed -i 's/WDR7400/WDR7600' package\/base-files\/files\/bin\/config_generate
           sed -i 's/OpenWrt/OpenWRT/' package\/base-files\/files\/bin\/config_generate
@@ -168,7 +171,7 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: 864config
+        name: N270_864config
         path: openwrt/artifact
 
     - name: Organize files 组织要上传的文件
