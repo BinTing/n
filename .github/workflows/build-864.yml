@@ -103,7 +103,8 @@ jobs:
        # CONFIG_FILE: '.config'   
        # CONFIG_FILE: '.img/X864config' 
        # CONFIG_FILE: '.img/X864-N270config' 
-        CONFIG_FILE: '.img/X864-X86config' 
+       # CONFIG_FILE: '.img/X864-X86config' 
+        CONFIG_FILE: '.img/X86-X86config' 
         DIY_SH: '.img/diy.sh'
       run: |
         [ -e .img/files ] && mv .img/files openwrt/files
@@ -167,7 +168,7 @@ jobs:
     - name: Upload .config file 组织要上传.config配置文件
       run: |
            mkdir -p openwrt/artifact
-           cp openwrt/.config openwrt/artifact/X864-X86config
+           cp openwrt/.config openwrt/artifact/X86-X86config
            
     - name: Upload .config file 上传编译配置文件
       uses: actions/upload-artifact@master
