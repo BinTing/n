@@ -9,7 +9,7 @@
 #name: OpenWrt WR703N OpenVPN SSR
 #name: OpenWRT for N2_mini
 #name: OpenWRT for N2-Nano
-name: OpenWRT for N2-JingJian
+name: OpenWRT for N2-Plus
 
 on: 
   release:
@@ -73,10 +73,10 @@ jobs:
 
           ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
           sed -i '/tl-wr703n-v1/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
-          sed -i 's/R9.12.31/by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
+          sed -i 's/R9.12.31/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
           sed -i 's/unameinfo.release/"Amlogic-N1-2020"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
           sed -i 's/pcdata(ver.luciname)/"N1盒子软路由"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-          sed -i 's/pcdata(ver.luciversion)/"2020-01-09"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          sed -i 's/pcdata(ver.luciversion)/"2020-01-12"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
           sed -i 's/192.168.1.1/192.168.3.2/' package\/base-files\/files\/bin\/config_generate
           ##sed -i 's/WDR7400/WDR7600' package\/base-files\/files\/bin\/config_generate
           sed -i 's/OpenWrt/N1/' package\/base-files\/files\/bin\/config_generate
