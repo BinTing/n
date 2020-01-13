@@ -7,7 +7,7 @@
 #=================================================
 
 #name: OpenWrt WR703N OpenVPN SSR
-name: OpenWRT for K2Pa1a2
+name: OpenWRT for K2Pa1-a2
 
 
 on: 
@@ -70,7 +70,7 @@ jobs:
           cd openwrt
           ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
           sed -i '/tl-K2P-v2/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
-          # sed -i 's/R9.12.31/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
+          sed -i 's/R9.12.31/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
           sed -i 's/192.168.1.1/192.168.3.1/' package\/base-files\/files\/bin\/config_generate
           sed -i 's/pcdata(ver.luciname)/"K2P"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
           sed -i 's/pcdata(ver.luciversion)/"2020-01-12"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
@@ -100,17 +100,18 @@ jobs:
       run: |
         [ -e .img/files ] && mv .img/files openwrt/files
         rm -rf openwrt/files/www/luci-static/resources/pictures
+        rm -rf openwrt/files/etc/wireless
         
         #cp -f .img/breed-K2P.bin openwrt/files/etc/uboot.bin
-        #cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/{system.lua,tony.lua} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/
-        #cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/{flashops.htm,reboot.htm} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/
-        #cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/
-        #cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/
-        #cp -f .img/lucifiles/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/{footer.htm,header.htm}  openwrt/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/
-        #cp -f .img/lucifiles/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/
-        #cp -f .img/lucifiles/package/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/luci-app-ssr-plus/luasrc/view/shadowsocksr/
+        cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/{system.lua,tony.lua} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/
+        cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/{flashops.htm,reboot.htm} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/
+        cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/
+        cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/
+        cp -f .img/lucifiles/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/{footer.htm,header.htm}  openwrt/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/
+        cp -f .img/lucifiles/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/
+        cp -f .img/lucifiles/package/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/luci-app-ssr-plus/luasrc/view/shadowsocksr/
         #cp -f .img/lucifiles/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c  openwrt/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c
-        #cp -f .img/lucifiles/feeds/luci/modules/luci-base/luasrc/model/firewall.lua  openwrt/feeds/luci/modules/luci-base/luasrc/model/firewall.lua
+        cp -f .img/lucifiles/feeds/luci/modules/luci-base/luasrc/model/firewall.lua  openwrt/feeds/luci/modules/luci-base/luasrc/model/firewall.lua
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_SH
         cd openwrt
@@ -161,7 +162,7 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: K2Pconfig
+        name: K2P_config
         path: openwrt/artifact
 
     - name: Organize files 组织要上传的文件
