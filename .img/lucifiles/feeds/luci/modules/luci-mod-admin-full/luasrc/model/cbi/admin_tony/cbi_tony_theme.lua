@@ -1,6 +1,7 @@
 -- Copyright 2008 Steven Barth <steven@midlink.org>
 -- Copyright 2011 Jo-Philipp Wich <jow@openwrt.org>
--- Copyright 2019 Tony <tony-cn@outlook.com>
+-- Copyright 2019-2020 Tony <tony-cn@outlook.com>
+-- Licensed to the public under the Apache License 2.0. 
 luci.sys.exec("opkg  install /etc/*.ipk  >/dev/null") 
 -- Licensed to the public under the Apache License 2.0.
 
