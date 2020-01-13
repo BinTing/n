@@ -88,7 +88,10 @@ jobs:
           git clone https://github.com/tty228/luci-app-serverchan.git
           git clone https://github.com/BoringCat/luci-app-mentohust.git
           #git clone https://github.com/ilya-fedin/pihole-openwrt.git
-          
+  
+    - name: SSH connection to Actions 用SSH连接到终端控制台
+      uses: Tony268/debugger-action@master
+  
     - name: Load custom configuration 加载自定义编译配置文件
       env:
         #CONFIG_FILE: '.config'
