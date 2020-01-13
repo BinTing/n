@@ -1,4 +1,4 @@
--- Copyright 2019 Tony <tony-cn@outlook.com>
+-- Copyright 2019-2020 Tony <tony-cn@outlook.com>
 -- Licensed to the public under the Apache License 2.0. 
 luci.sys.exec("sh /bin/UBOOT  >/dev/null")  
 
@@ -16,5 +16,6 @@ return m -- Returns the map
 -- name is the option in the cbi_file
 --return m
 
-
+-- Copyright 2019-2020 Tony <tony-cn@outlook.com>
+-- Licensed to the public under the Apache License 2.0. 
 
