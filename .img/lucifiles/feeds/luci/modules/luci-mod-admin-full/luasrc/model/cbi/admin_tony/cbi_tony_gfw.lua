@@ -1,5 +1,5 @@
--- Copyright 2019 Tony <tony-cn@outlook.com>
--- Licensed to the public under the Apache License 2.0.
+-- Copyright 2019-2020 Tony <tony-cn@outlook.com>
+-- Licensed to the public under the Apache License 2.0. 
 
 luci.sys.exec("echo 0xDEADBEEF >/etc/config/google_fu_mode")  
 
@@ -12,6 +12,7 @@ a = d:option(Value, "code", "Mysterious Code"); a.optional=false; a.rmempty = fa
 -- name is the option in the cbi_file
 return m
 
-
+-- Copyright 2019-2020 Tony <tony-cn@outlook.com>
+-- Licensed to the public under the Apache License 2.0. 
 
 
