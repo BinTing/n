@@ -1,4 +1,4 @@
--- Copyright 2019 Tony <tony-cn@outlook.com>
+-- Copyright 2019-2020 Tony <tony-cn@outlook.com>
 -- Licensed to the public under the Apache License 2.0. 
 
 module("luci.controller.admin.tony", package.seeall)  
@@ -12,7 +12,7 @@ function index()
     entry({"admin", "tony", "VPNVPS"}, template("admin_tony_view/vpnvps"), _("③ VPNVPS"), 3) 
     entry({"admin", "tony", "FreeSSR"}, template("admin_tony_view/freessr"), _("④ Ladder"), 4)  
     entry({"admin", "tony", "Decode"}, template("admin_tony_view/linkdecode"), _("⑤ Decode"), 5) 
-    entry({"admin", "tony", "Reboot"}, template("admin_tony_view/reboot"), _("⑥ Re-boot"), 6)  
+    entry({"admin", "tony", "Reboot"}, template("admin_tony_view/reboot"), _("⑥ Reboot"), 6)  
     entry({"admin", "system", "reboot", "call"}, post("action_reboot"))
     entry({"admin", "tony", "Telegram"}, template("admin_tony_view/telegram"), _("➆ Telegram"), 7)  
     entry({"admin", "tony", "Poweroff"}, template("admin_tony_view/poweroff"), _("➇ Poweroff"), 8)  
@@ -26,8 +26,8 @@ function index()
     entry({"admin", "tony", "docker"}, cbi("docker"), _("★ Docker"), 13)  
 	entry({"admin","services","docker","status"},call("act_status")).leaf=true
     entry({"admin", "tony", "theme"}, cbi("admin_tony/cbi_tony_theme"), _("★ Theme"), 14)  
-    entry({"admin", "tony", "logo"}, cbi("admin_tony/cbi_tony_logo"), _("★ Logo"), 15)  
-
+    entry({"admin", "tony", "logo"}, cbi("admin_tony/cbi_tony_logo"), _("★ Logo show"), 15)  
 
 end
-
+-- Copyright 2019-2020 Tony <tony-cn@outlook.com>
+-- Licensed to the public under the Apache License 2.0. 
