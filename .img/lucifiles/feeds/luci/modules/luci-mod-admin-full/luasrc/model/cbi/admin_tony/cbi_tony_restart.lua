@@ -1,5 +1,5 @@
--- Copyright 2019 Tony <tony-cn@outlook.com>
--- Licensed to the public under the Apache License 2.0.
+-- Copyright 2019-2020 Tony <tony-cn@outlook.com>
+-- Licensed to the public under the Apache License 2.0. 
 
 --luci.sys.call("/etc/init.d/network restart")
 
@@ -20,7 +20,8 @@ return m -- Returns the map
 --luci.sys.exec("echo 0xDEADBEEF >/etc/config/google_fu_mode") 
 -- name is the option in the cbi_restart
 --return m
-
+-- Copyright 2019-2020 Tony <tony-cn@outlook.com>
+-- Licensed to the public under the Apache License 2.0. 
 
 
 
