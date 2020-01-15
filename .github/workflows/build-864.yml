@@ -58,7 +58,8 @@ jobs:
        ## REPO_URL: https://github.com/openwrt/openwrt
        ## REPO_URL: https://github.com/openwrt/openwrt
        ## REPO_URL: https://github.com/a520ass/openwrt
-         REPO_URL: https://github.com/coolsnowwolf/lede
+       ## REPO_URL: https://github.com/coolsnowwolf/lede
+         REPO_URL: https://github.com/Lienol/lean-lede
          REPO_BRANCH: master
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
 
@@ -82,7 +83,7 @@ jobs:
           sed -i 's/OpenWrt/OpenWRT/' package\/base-files\/files\/bin\/config_generate
           sed -i 's/.ssid=OpenWrt/.ssid=OpenWRT-WiFi/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
           sed -i 's/.encryption=none/.encryption=psk2\n	    		set wireless.default_radio\${devidx}.key=password\n/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
-          sed -i 's/pcdata(ver.luciversion)/"2020-01-09"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          sed -i 's/pcdata(ver.luciversion)/"2020-01-16"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
 
       
     - name: Custom Applications 增加应用软件
@@ -168,7 +169,7 @@ jobs:
     - name: Upload .config file 组织要上传.config配置文件
       run: |
            mkdir -p openwrt/artifact
-           cp openwrt/.config openwrt/artifact/X86-X86config
+           cp openwrt/.config openwrt/artifact/X86-X86-pw.config
            
     - name: Upload .config file 上传编译配置文件
       uses: actions/upload-artifact@master
