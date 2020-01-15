@@ -9,7 +9,7 @@
 #name: OpenWrt WR703N OpenVPN SSR
 #name: OpenWRT for N2_mini
 #name: OpenWRT for X86 N270
-name: OpenWRT for X86
+name: OpenWRT for X86pw
 
 
 on: 
