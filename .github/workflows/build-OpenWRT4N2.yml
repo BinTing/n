@@ -9,7 +9,7 @@
 #name: OpenWrt WR703N OpenVPN SSR
 #name: OpenWRT for N2_mini
 #name: OpenWRT for N2-Nano
-name: OpenWRT for N2Plus
+name: OpenWRT for N2 Plus
 
 on: 
   release:
@@ -102,7 +102,8 @@ jobs:
        # CONFIG_FILE: '.img/n1config' 
        # CONFIG_FILE: '.img/n1miniconfig' 
        # CONFIG_FILE: '.img/n1miniconfigJingJian' 
-        CONFIG_FILE: '.img/n1miniconfigbig' 
+       # CONFIG_FILE: '.img/n1miniconfigbig' 
+        CONFIG_FILE: '.img/n11config' 
         DIY_SH: '.img/diy.sh'
       run: |
         [ -e .img/files ] && mv .img/files openwrt/files
@@ -135,8 +136,9 @@ jobs:
 
       # - name: SSH connection to Actions
       #   uses: Tony268/debugger-action@master
-    - name: SSH connection to Actions 用SSH连接到终端控制台
-      uses: Tony268/debugger-action@master
+        
+    #- name: SSH connection to Actions 用SSH连接到终端控制台
+    #  uses: Tony268/debugger-action@master
 
     - name: Download package 下载软件包
       run: |
