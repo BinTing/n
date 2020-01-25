@@ -101,8 +101,8 @@ jobs:
        # CONFIG_FILE: '.config'   
        # CONFIG_FILE: '.img/n1config' 
        # CONFIG_FILE: '.img/n1miniconfig' 
-       # CONFIG_FILE: '.img/n1miniconfigJingJian' 
-        CONFIG_FILE: '.img/n1miniconfigbig' 
+        CONFIG_FILE: '.img/n1miniconfigJingJian' 
+       # CONFIG_FILE: '.img/n1miniconfigbig' 
        # CONFIG_FILE: '.img/n11config' 
         DIY_SH: '.img/diy.sh'
       run: |
