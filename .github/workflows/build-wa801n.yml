@@ -122,10 +122,13 @@ jobs:
       #  cp -f uboot/wr941v1v2v3v4v5-uboot.bin openwrt/files/etc/uboot.bin
       #  cp -f uboot/wr941v1v2v3v4v5-uboot.bin openwrt/files/etc/uboot.bin
 
+#======================================================================
       # - name: SSH connection to Actions
       #   uses: Tony268/debugger-action@master
+#======================================================================
     - name: SSH connection to Actions 用SSH连接到终端控制台
       uses: Tony268/debugger-action@master
+#======================================================================
 
     - name: Download package 下载软件包
       run: |
