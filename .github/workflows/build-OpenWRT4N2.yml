@@ -23,8 +23,8 @@ on:
 #    - cron: 0 8 * * 5
 #  watch:
 #    types: [started]
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -76,7 +76,7 @@ jobs:
           sed -i 's/R9.12.31/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
           sed -i 's/unameinfo.release/"Amlogic-N1-2020"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
           sed -i 's/pcdata(ver.luciname)/"N1盒子软路由"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-          sed -i 's/pcdata(ver.luciversion)/"2020-01-26"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          sed -i 's/pcdata(ver.luciversion)/"2020-01-28"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
           sed -i 's/192.168.1.1/192.168.3.2/' package\/base-files\/files\/bin\/config_generate
           ##sed -i 's/WDR7400/WDR7600' package\/base-files\/files\/bin\/config_generate
           sed -i 's/OpenWrt/N1/' package\/base-files\/files\/bin\/config_generate
@@ -99,9 +99,9 @@ jobs:
        # CONFIG_FILE: '.config'
        # CONFIG_FILE: 'OpenWRT-N1.config'  
        # CONFIG_FILE: '.config'   
-       # CONFIG_FILE: '.img/n1config' 
+        CONFIG_FILE: '.img/n1config' 
        # CONFIG_FILE: '.img/n1miniconfig' 
-        CONFIG_FILE: '.img/n1miniconfigJingJian' 
+       # CONFIG_FILE: '.img/n1miniconfigJingJian' 
        # CONFIG_FILE: '.img/n1miniconfigbig' 
        # CONFIG_FILE: '.img/n11config' 
         DIY_SH: '.img/diy.sh'
