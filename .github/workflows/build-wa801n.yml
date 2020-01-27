@@ -7,7 +7,7 @@
 #=================================================
 
 #name: OpenWrt WR703N OpenVPN SSR
-name: OpenWRT for WA801N-v2
+name: OpenWRT for WA801N_v2
 
 
 on: 
@@ -70,9 +70,11 @@ jobs:
           cd openwrt
           ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
           sed -i '/tl-wa801n-v2/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
-          # sed -i 's/R9.12.31/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
+          sed -i 's/R9.12.31/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
           sed -i 's/192.168.1.1/192.168.9.1/' package\/base-files\/files\/bin\/config_generate
-          ##sed -i 's/WDR7400/WDR7600' package\/base-files\/files\/bin\/config_generate
+          sed -i 's/pcdata(ver.luciname)/"中继神器"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          sed -i 's/pcdata(ver.luciversion)/"2020-01-28"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+
           sed -i 's/OpenWrt/WA801N/' package\/base-files\/files\/bin\/config_generate
           sed -i 's/.ssid=OpenWrt/.ssid=WA801N-WiFi/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
           sed -i 's/.encryption=none/.encryption=psk2\n	    		set wireless.default_radio\${devidx}.key=password\n/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
