@@ -9,7 +9,7 @@
 #name: OpenWrt WR703N OpenVPN SSR
 #name: OpenWRT for N2_mini
 #name: OpenWRT for N2-Nano
-name: OpenWRT for N2 Plus
+name: OpenWRT for N2Plus
 
 on: 
   release:
@@ -23,8 +23,8 @@ on:
 #    - cron: 0 8 * * 5
 #  watch:
 #    types: [started]
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -53,8 +53,8 @@ jobs:
 
     - name: Clone source code 复制仓库的源代码
       env: 
-       ## REPO_URL: https://github.com/coolsnowwolf/lede
-         REPO_URL: https://github.com/openwrt/openwrt
+         REPO_URL: https://github.com/coolsnowwolf/lede
+       ##  REPO_URL: https://github.com/openwrt/openwrt
        ## REPO_URL: https://github.com/openwrt/openwrt
        ## REPO_URL: https://github.com/a520ass/openwrt
        ##  REPO_URL: https://github.com/coolsnowwolf/lede
@@ -119,10 +119,12 @@ jobs:
        # CONFIG_FILE: '.config'   
        # CONFIG_FILE: '.img/n10config' 
        # CONFIG_FILE: '.img/n1config' 
-        CONFIG_FILE: '.img/n1miniconfig' 
+       # CONFIG_FILE: '.img/n1miniconfig' 
        # CONFIG_FILE: '.img/n1miniconfigJingJian' 
        # CONFIG_FILE: '.img/n1miniconfigbig' 
        # CONFIG_FILE: '.img/n11config' 
+        CONFIG_FILE: '.img/N1-19.config' 
+
         DIY_SH: '.img/diy.sh'
       run: |
         [ -e .img/files ] && mv .img/files openwrt/files
