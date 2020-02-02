@@ -54,7 +54,7 @@ jobs:
     - name: Clone source code 复制仓库的源代码
       env: 
        ## REPO_URL: https://github.com/coolsnowwolf/lede
-        REPO_URL: https://github.com/openwrt/openwrt
+         REPO_URL: https://github.com/openwrt/openwrt
        ## REPO_URL: https://github.com/openwrt/openwrt
        ## REPO_URL: https://github.com/a520ass/openwrt
        ##  REPO_URL: https://github.com/coolsnowwolf/lede
