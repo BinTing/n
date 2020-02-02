@@ -70,7 +70,25 @@ jobs:
     - name: Custom 个性化设置一些文件
       run: |
           cd openwrt
-
+          ################################################################
+          mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/
+          mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/
+          mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/
+          mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/
+          mkdir -p feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/
+          mkdir -p package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/
+          mkdir -p package/luci-app-ssr-plus/luasrc/view/shadowsocksr/
+          mkdir -p feeds/luci/modules/luci-base/luasrc/model/
+          mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/
+          #mkdir -p 
+          #mkdir -p 
+          #mkdir -p 
+          #mkdir -p 
+          
+          #rm -rf openwrt/files/www/luci-static/resources/pictures
+          #rm -rf openwrt/files/etc/wireless
+          ################################################################
+          
           ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
           sed -i '/tl-wr703n-v1/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
           #sed -i 's/R20.1.24/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
