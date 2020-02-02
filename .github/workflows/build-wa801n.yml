@@ -5,9 +5,9 @@
 # Author: Tony
 # Blog: https://bit.do/TonyLee
 #=================================================
-#name: OpenWRT for WA801N-v2-8M
+name: OpenWRT for WA801N-v2-8M
 #name: OpenWrt WR703N OpenVPN SSR
-name: OpenWRT for WA801N-v2-16M
+#name: OpenWRT for WA801N-v2-16M
 
 
 on: 
@@ -22,8 +22,8 @@ on:
 #    - cron: 0 8 * * 5
 #  watch:
 #    types: [started]
-  watch:
-    types: [started]
+#  watch:
+#    types: [started]
 
 jobs:
   build:
