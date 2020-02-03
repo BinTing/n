@@ -9,7 +9,8 @@
 #name: OpenWrt WR703N OpenVPN SSR
 #name: OpenWRT for N2_mini
 #name: OpenWRT for N2-Nano
-name: OpenWRT for N2Plus
+#name: OpenWRT for N2Plus
+name: OpenWRT for N2Cloud
 
 on: 
   release:
@@ -105,9 +106,9 @@ jobs:
           sed -i '/tl-wr703n-v1/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
           sed -i 's/R20.1.24/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
           sed -i 's/unameinfo.release/"Amlogic-N1-2020"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-          sed -i 's/pcdata(ver.luciname)/"N1盒子软路由云端版"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          sed -i 's/pcdata(ver.luciname)/"N1软路由云端版"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
           sed -i 's/pcdata(ver.luciversion)/"2020-02-03"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-          sed -i 's/192.168.1.1/192.168.3.2/' package\/base-files\/files\/bin\/config_generate
+          sed -i 's/192.168.1.1/192.168.3.1/' package\/base-files\/files\/bin\/config_generate
           ##sed -i 's/WDR7400/WDR7600' package\/base-files\/files\/bin\/config_generate
           sed -i 's/OpenWrt/N1/' package\/base-files\/files\/bin\/config_generate
           sed -i 's/.ssid=OpenWrt/.ssid=N1-WiFi/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
@@ -126,7 +127,7 @@ jobs:
           
     - name: Load custom configuration 加载自定义编译配置文件
       env:
-        CONFIG_FILE: '.config'
+       # CONFIG_FILE: '.config'
        # CONFIG_FILE: 'OpenWRT-N1.config'  
        # CONFIG_FILE: '.config'   
        # CONFIG_FILE: '.img/n10config' 
@@ -136,6 +137,7 @@ jobs:
        # CONFIG_FILE: '.img/n1miniconfigbig' 
        # CONFIG_FILE: '.img/n11config' 
        # CONFIG_FILE: '.img/N1-19.config' 
+        CONFIG_FILE: '.img/N2Cloud.config' 
 
         DIY_SH: '.img/diy.sh'
       run: |
