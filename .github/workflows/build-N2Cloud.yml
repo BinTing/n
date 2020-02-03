@@ -10,7 +10,8 @@
 #name: OpenWRT for N2_mini
 #name: OpenWRT for N2-Nano
 #name: OpenWRT for N2Plus
-name: OpenWRT for N2Cloud
+name: OpenWRT for N2Cloud64
+#name: OpenWRT for N2Cloud86
 
 on: 
   release:
@@ -137,7 +138,7 @@ jobs:
        # CONFIG_FILE: '.img/n1miniconfigbig' 
        # CONFIG_FILE: '.img/n11config' 
        # CONFIG_FILE: '.img/N1-19.config' 
-        CONFIG_FILE: '.img/N2Cloud.config' 
+        CONFIG_FILE: '.img/N2Cloud64.config' 
 
         DIY_SH: '.img/diy.sh'
       run: |
@@ -197,19 +198,19 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: N2Cloud_packages
+        name: N2Cloud64_packages
         path: openwrt/bin
 
     - name: Upload .config file 组织要上传.config配置文件
       run: |
            mkdir -p openwrt/artifact
-           cp openwrt/.config openwrt/artifact/N2Cloud.config
+           cp openwrt/.config openwrt/artifact/N2Cloud64.config
            
     - name: Upload .config file 上传编译配置文件
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: N2Cloudconfig
+        name: N2Cloud64config
         path: openwrt/artifact
 
     - name: Organize files 组织要上传的文件
@@ -223,6 +224,6 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: N2Cloud_firmware
+        name: N2Cloud64_firmware
         path: ${{ env.FIRMWARE }}
           
