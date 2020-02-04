@@ -9,7 +9,8 @@
 #name: OpenWrt WR703N OpenVPN SSR
 #name: OpenWRT for N2_mini
 #name: OpenWRT for N2-Nano
-name: OpenWRT for N2Plus
+#name: OpenWRT for N2Plus
+name: OpenWRT for N2020Plus
 
 on: 
   release:
@@ -94,7 +95,7 @@ jobs:
           #sed -i 's/R20.1.24/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
           #sed -i 's/unameinfo.release/"Amlogic-N1-2020"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
           #sed -i 's/pcdata(ver.luciname)/"N1盒子软路由"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-          #sed -i 's/pcdata(ver.luciversion)/"2020-02-02"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          #sed -i 's/pcdata(ver.luciversion)/"2020-02-06"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
           sed -i 's/192.168.1.1/192.168.3.2/' package\/base-files\/files\/bin\/config_generate
           ##sed -i 's/WDR7400/WDR7600' package\/base-files\/files\/bin\/config_generate
           sed -i 's/OpenWrt/N1/' package\/base-files\/files\/bin\/config_generate
@@ -123,7 +124,10 @@ jobs:
        # CONFIG_FILE: '.img/n1miniconfigJingJian' 
        # CONFIG_FILE: '.img/n1miniconfigbig' 
        # CONFIG_FILE: '.img/n11config' 
-        CONFIG_FILE: '.img/N1-19.config' 
+       # CONFIG_FILE: '.img/N1-19.config' 
+        CONFIG_FILE: '.img/N2020.config' 
+
+
 
         DIY_SH: '.img/diy.sh'
       run: |
@@ -188,14 +192,16 @@ jobs:
 
     - name: Upload .config file 组织要上传.config配置文件
       run: |
-           mkdir -p openwrt/artifact
-           cp openwrt/.config openwrt/artifact/n1miniconfigopenwrt
+           mkdir -p openwrt/artifact 
+           #cp openwrt/.config openwrt/artifact/n1miniconfigopenwrt
+           cp openwrt/.config openwrt/artifact/N2020.config
+           
            
     - name: Upload .config file 上传编译配置文件
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: N2configBig
+        name: N2020config
         path: openwrt/artifact
 
     - name: Organize files 组织要上传的文件
