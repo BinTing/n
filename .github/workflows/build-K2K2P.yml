@@ -102,6 +102,11 @@ jobs:
       run: |
         [ -e .img/files ] && mv .img/files openwrt/files
         rm -rf openwrt/files/www/luci-static/resources/pictures
+        rm -rf openwrt/files/etc/fcn
+        rm -rf openwrt/files/etc/luci-theme-argon_1.0-2_all.ipk
+        rm -rf openwrt/files/etc/uboot.bin
+        rm -rf openwrt/files/opt/fcn
+        rm -rf openwrt/files/overlay/default.tar.gz
         mv openwrt/files/etc/config/network openwrt/files/etc/config/network2
         mv openwrt/files/etc/config/wireless openwrt/files/etc/config/wireless2
         
