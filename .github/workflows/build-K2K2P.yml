@@ -5,8 +5,8 @@
 # Author: Tony
 # Blog: https://bit.do/TonyLee
 #=================================================
-name: OpenWRT for K2K2P-8M
-#name: OpenWRT for K2K2P-16M
+#name: OpenWRT for K2K2P-8M
+name: OpenWRT for K2K2P-16M
 #name: OpenWrt WR703N OpenVPN SSR
 #name: OpenWRT for WA801N-v2-16M
 
@@ -160,20 +160,20 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: K2-8M_packages
+        name: K2-16M_packages
         path: openwrt/bin
 
     - name: Upload .config file 组织要上传.config配置文件
       run: |
            mkdir -p openwrt/artifact
-           cp openwrt/.config openwrt/artifact/K2-8Mconfig
+           cp openwrt/.config openwrt/artifact/K2-16Mconfig
            ##cp openwrt/.config openwrt/artifact/WA801N-v2-8Mconfig
            
     - name: Upload .config file 上传编译配置文件
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: K2-8Mconfig
+        name: K2-16Mconfig
         path: openwrt/artifact
 
     - name: Organize files 组织要上传的文件
@@ -187,6 +187,6 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: K2-8M_firmware
+        name: K2-16M_firmware
         path: ${{ env.FIRMWARE }}
         
