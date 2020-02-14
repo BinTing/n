@@ -69,7 +69,7 @@ jobs:
       run: |
           cd openwrt
           ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
-          sed -i 's/0x7b0000/0xfb0000/g' target\/linux\/ramips\/dts\/mt7621a_phicomm_psg1218.dtsi    
+          #sed -i 's/0x7b0000/0xfb0000/g' target\/linux\/ramips\/dts\/mt7621a_phicomm_psg1218.dtsi    
           sed -i 's/7872k/16064k/g' target\/linux\/ramips\/image\/mt7621.mk 
           sed -i '/tl-wa801nd-v2/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
           sed -i 's/R20.1.24/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
