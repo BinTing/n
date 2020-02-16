@@ -1652,6 +1652,7 @@ CONFIG_PACKAGE_urngd=y
 # CONFIG_PACKAGE_autosamba is not set
 # CONFIG_PACKAGE_ipv6helper is not set
 # CONFIG_PACKAGE_k3wifi is not set
+# CONFIG_PACKAGE_wireguard-tools is not set
 
 #
 # Firmware
@@ -3988,7 +3989,7 @@ CONFIG_PACKAGE_luci-app-mwan3=y
 # CONFIG_PACKAGE_luci-app-squid is not set
 CONFIG_PACKAGE_luci-app-ssr-plus=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
-# CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs is not set
+CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Simple_obfs=y
 # CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray_plugin is not set
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
 CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Trojan=y
@@ -4850,7 +4851,6 @@ CONFIG_PACKAGE_tc=y
 # CONFIG_PACKAGE_vpnc is not set
 # CONFIG_PACKAGE_vpnc-scripts is not set
 # CONFIG_PACKAGE_wireguard is not set
-# CONFIG_PACKAGE_wireguard-tools is not set
 # CONFIG_PACKAGE_xl2tpd is not set
 # CONFIG_PACKAGE_zerotier is not set
 
@@ -5138,8 +5138,13 @@ CONFIG_PACKAGE_ppp-mod-pppoe=y
 # CONFIG_PACKAGE_seafile-server is not set
 # CONFIG_PACKAGE_ser2net is not set
 # CONFIG_PACKAGE_simple-adblock is not set
-# CONFIG_PACKAGE_simple-obfs is not set
+CONFIG_PACKAGE_simple-obfs=y
 # CONFIG_PACKAGE_simple-obfs-server is not set
+
+#
+# Simple-obfs Compile Configuration
+#
+# CONFIG_SIMPLE_OBFS_STATIC_LINK is not set
 # CONFIG_PACKAGE_smartdns is not set
 # CONFIG_PACKAGE_smartsnmpd is not set
 # CONFIG_PACKAGE_snmp-mibs is not set
