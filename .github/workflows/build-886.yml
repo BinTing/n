@@ -7,7 +7,7 @@
 #=================================================
 
 #name: OpenWrt WR703N OpenVPN SSR
-name: OpenWRT for WR886N
+name: OpenWRT for WR886N_2020
 
 
 on: 
@@ -22,8 +22,8 @@ on:
 #    - cron: 0 8 * * 5
 #  watch:
 #    types: [started]
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -72,8 +72,8 @@ jobs:
 
           ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
           sed -i '/tl-wr886n-v2/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
-          # sed -i 's/R9.12.31/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
-          sed -i 's/192.168.1.1/192.168.3.2/' package\/base-files\/files\/bin\/config_generate
+          # sed -i 's/R20.2.15/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
+          sed -i 's/192.168.1.1/192.168.2.1/' package\/base-files\/files\/bin\/config_generate
           ##sed -i 's/WDR7400/WDR7600' package\/base-files\/files\/bin\/config_generate
           sed -i 's/OpenWrt/WR886N/' package\/base-files\/files\/bin\/config_generate
           sed -i 's/.ssid=OpenWrt/.ssid=WR886N-WiFi/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
