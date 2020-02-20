@@ -121,11 +121,11 @@ jobs:
        # CONFIG_FILE: '.img/n10config' 
        # CONFIG_FILE: '.img/n1config' 
        # CONFIG_FILE: '.img/n1miniconfig' 
-       # CONFIG_FILE: '.img/n1miniconfigJingJian' 
+        CONFIG_FILE: '.img/n1miniconfigJingJian' 
        # CONFIG_FILE: '.img/n1miniconfigbig' 
        # CONFIG_FILE: '.img/n11config' 
        # CONFIG_FILE: '.img/N1-19.config' 
-        CONFIG_FILE: '.img/N2020.config' 
+       # CONFIG_FILE: '.img/N2020.config' 
 
 
 
@@ -149,7 +149,7 @@ jobs:
         chmod +x $DIY_SH
         cd openwrt
         ../$DIY_SH
-        make defconfig
+        #make defconfig
         
       ##cp -f .img/lucifiles/target/linux/ar71xx/image/{tiny-tp-link.mk,generic-tp-link.mk}  openwrt/target/linux/ar71xx/image/
       ##cp -f .img/lucifiles/package/lean/luci-theme-argon/htdocs/luci-static/argon/{tony.gif,logo.png,favicon.ico}  openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/
