@@ -10,8 +10,10 @@
 #name: OpenWRT for N2_mini
 #name: OpenWRT for N2-Nano
 #name: OpenWRT for N2Plus
-name: OpenWRT for N2Cloud64
+#name: OpenWRT for N2Cloud64
 #name: OpenWRT for N2Cloud86
+name: OpenWRT for J1900-Cloud64
+
 
 on: 
   release:
@@ -25,8 +27,8 @@ on:
 #    - cron: 0 8 * * 5
 #  watch:
 #    types: [started]
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -100,19 +102,20 @@ jobs:
           #mkdir -p 
           
           #rm -rf openwrt/files/www/luci-static/resources/pictures
-          #rm -rf openwrt/files/etc/wireless
+          rm -rf openwrt/files/etc/wireless
+          rm -rf openwrt/files/etc/network
           ################################################################
           
           ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
           sed -i '/tl-wr703n-v1/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
-          sed -i 's/R20.1.24/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
+          sed -i 's/R20.2.15/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
           sed -i 's/unameinfo.release/"Amlogic-N1-2020"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-          sed -i 's/pcdata(ver.luciname)/"N1软路由云端版"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-          sed -i 's/pcdata(ver.luciversion)/"2020-02-03"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-          sed -i 's/192.168.1.1/192.168.3.1/' package\/base-files\/files\/bin\/config_generate
+          sed -i 's/pcdata(ver.luciname)/"软路由加强版"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          sed -i 's/pcdata(ver.luciversion)/"2020-02-26"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          sed -i 's/192.168.1.1/192.168.2.1/' package\/base-files\/files\/bin\/config_generate
           ##sed -i 's/WDR7400/WDR7600' package\/base-files\/files\/bin\/config_generate
-          sed -i 's/OpenWrt/N1/' package\/base-files\/files\/bin\/config_generate
-          sed -i 's/.ssid=OpenWrt/.ssid=N1-WiFi/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
+          sed -i 's/OpenWrt/J1900/' package\/base-files\/files\/bin\/config_generate
+          sed -i 's/.ssid=OpenWrt/.ssid=J1900-WiFi/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
           sed -i 's/.encryption=none/.encryption=psk2\n	    		set wireless.default_radio\${devidx}.key=password\n/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
       
     - name: Custom Applications 增加应用软件
@@ -210,7 +213,7 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: N2Cloud64config
+        name: J1900-Cloud64config
         path: openwrt/artifact
 
     - name: Organize files 组织要上传的文件
