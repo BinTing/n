@@ -160,6 +160,12 @@ jobs:
         cp -f .img/lucifiles/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/
         cp -f .img/lucifiles/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c  openwrt/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c
         cp -f .img/lucifiles/feeds/luci/modules/luci-base/luasrc/model/firewall.lua  openwrt/feeds/luci/modules/luci-base/luasrc/model/firewall.lua
+
+
+        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
+        chmod +x $DIY_SH
+        cd openwrt
+        ../$DIY_SH
  
         cd openwrt/
         ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
@@ -175,10 +181,6 @@ jobs:
         sed -i 's/.encryption=none/.encryption=psk2\n	    		set wireless.default_radio\${devidx}.key=password\n/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
     
 
-        [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
-        chmod +x $DIY_SH
-        cd openwrt
-        ../$DIY_SH
         make defconfig
         
       ##cp -f .img/lucifiles/target/linux/ar71xx/image/{tiny-tp-link.mk,generic-tp-link.mk}  openwrt/target/linux/ar71xx/image/
