@@ -167,9 +167,9 @@ jobs:
         cd openwrt
         ../$DIY_SH
  
-        cd openwrt/
+        #cd openwrt/
         ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
-        sed -i '/tl-wr703n-v1/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
+        #sed -i '/tl-wr703n-v1/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
         sed -i 's/R20.2.15/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
         sed -i 's/unameinfo.release/"X86X64-2020"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
         sed -i 's/pcdata(ver.luciname)/"软路由加强版"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
@@ -181,7 +181,7 @@ jobs:
         sed -i 's/.encryption=none/.encryption=psk2\n	    		set wireless.default_radio\${devidx}.key=password\n/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
     
 
-        make defconfig
+        #make defconfig
         
       ##cp -f .img/lucifiles/target/linux/ar71xx/image/{tiny-tp-link.mk,generic-tp-link.mk}  openwrt/target/linux/ar71xx/image/
       ##cp -f .img/lucifiles/package/lean/luci-theme-argon/htdocs/luci-static/argon/{tony.gif,logo.png,favicon.ico}  openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/
