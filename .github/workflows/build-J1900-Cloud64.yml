@@ -100,9 +100,7 @@ jobs:
           #mkdir -p 
           #mkdir -p 
           
-          #rm -rf openwrt/files/www/luci-static/resources/pictures
-          rm -rf openwrt/files/etc/wireless
-          rm -rf openwrt/files/etc/network
+
           ################################################################
           
           ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
@@ -161,7 +159,10 @@ jobs:
         cp -f .img/lucifiles/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c  openwrt/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c
         cp -f .img/lucifiles/feeds/luci/modules/luci-base/luasrc/model/firewall.lua  openwrt/feeds/luci/modules/luci-base/luasrc/model/firewall.lua
 
-
+        #rm -rf openwrt/files/www/luci-static/resources/pictures
+        rm -rf openwrt/files/etc/wireless
+        rm -rf openwrt/files/etc/network
+          
         [ -e $CONFIG_FILE ] && mv $CONFIG_FILE openwrt/.config
         chmod +x $DIY_SH
         cd openwrt
