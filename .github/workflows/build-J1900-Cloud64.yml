@@ -12,7 +12,7 @@
 #name: OpenWRT for N2Plus
 #name: OpenWRT for N2Cloud64
 #name: OpenWRT for N2Cloud86
-name: OpenWRT for J1900-X86X64
+name: OpenWRT for J1900-X86_X64
 
 
 on: 
@@ -149,8 +149,8 @@ jobs:
         cp -f .img/N1-uboot.bin openwrt/files/etc/uboot.bin
         cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/{system.lua,tony.lua} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/
         cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/{flashops.htm,reboot.htm} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/
-        cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/
-        cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/
+        cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/
+        cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/
         cp -f .img/lucifiles/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/{footer.htm,header.htm}  openwrt/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/
         cp -f .img/lucifiles/package/lean/luci-theme-argon/htdocs/luci-static/argon/{favicon.ico,logo.png,tony.gif}  openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/
         cp -f .img/lucifiles/package/lean/luci-theme-argon/htdocs/luci-static/argon/css/style.css  openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/css/
@@ -217,7 +217,7 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: N2Cloud64_packages
+        name: J1900-Cloud64_packages
         path: openwrt/bin
 
     - name: Upload .config file 组织要上传.config配置文件
@@ -243,5 +243,5 @@ jobs:
       uses: actions/upload-artifact@master
       if: always()
       with:
-        name: N2Cloud64_firmware
+        name: J1900-Cloud64_firmware
         path: ${{ env.FIRMWARE }}
