@@ -78,12 +78,12 @@ jobs:
          REPO_BRANCH: master
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
       
-      
-           git init lede && cd lede  
-           git config core.sparse-checkout true     
-           echo 'package/lean' >> .git/info/sparse-checkout 
-           git remote add origin git@github.com/coolsnowwolf/lede.git  
-           git pull origin master   
+           git clone https://github.com/coolsnowwolf/lede.git
+           #git init lede && cd lede  
+           #git config core.sparse-checkout true     
+           #echo 'package/lean' >> .git/info/sparse-checkout 
+           #git remote add origin git@github.com/coolsnowwolf/lede.git  
+           #git pull origin master   
            #新建仓库并进入文件夹
            #设置允许克隆子目录
            #设置要克隆的仓库的子目录路径   //空格别漏
