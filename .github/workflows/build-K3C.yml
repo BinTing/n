@@ -66,7 +66,7 @@ jobs:
           # ln -s /mnt/openwrt/feeds ./feeds
           # ln -s /mnt/openwrt/staging_dir ./staging_dir
           df -h
-    - name: Clone source code 复制仓库的源代码https://github.com/coolsnowwolf/lede/tree/master/package/lean
+    - name: Clone source code 复制仓库的源代码
       env: 
          REPO_URL: https://github.com/paldier/K3C
          #REPO_URL: https://github.com/coolsnowwolf/lede
