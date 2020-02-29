@@ -100,8 +100,8 @@ jobs:
            #svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean
 
 #=========================================================================    
-    - name: SSH connection to Actions 用SSH连接到终端控制台
-      uses: Tony268/debugger-action@master
+    #- name: SSH connection to Actions 用SSH连接到终端控制台
+    #  uses: Tony268/debugger-action@master
 #=========================================================================
 
     - name: Update feeds 更新源
@@ -131,7 +131,7 @@ jobs:
           ################################################################
           
           ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
-          sed -i '/tl-wr703n-v1/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
+          #sed -i '/tl-wr703n-v1/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
           sed -i 's/R20.2.15/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
           sed -i 's/unameinfo.release/"X86X64-2020"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
           sed -i 's/pcdata(ver.luciname)/"软路由加强版"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
