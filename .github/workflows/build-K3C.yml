@@ -80,7 +80,7 @@ jobs:
       
            git clone https://github.com/coolsnowwolf/lede.git
            mv lede/package/lean openwrt/package/
-           rm -rf lede
+           #rm -rf lede
            #git init lede && cd lede  
            #git config core.sparse-checkout true     
            #echo 'package/lean' >> .git/info/sparse-checkout 
