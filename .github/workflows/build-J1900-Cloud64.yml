@@ -147,6 +147,7 @@ jobs:
         rm -rf openwrt/files/etc/network
         cp -f .img/SmartdDNS/luci-app-smartdns.1.2020.02.25-2212.all-luci-all.ipk openwrt/files/etc/
         cp -f .img/SmartdDNS/smartdns.1.2020.02.25-2212.x86_64-openwrt-all.ipk openwrt/files/etc/
+        cp -f .img/SmartdDNS/luci-theme-argon_1.0-2_all.ipk openwrt/files/etc/
         #cp -f .img/SmartdDNS/smartdns.1.2020.02.25-2212.aarch64-openwrt-all.ipk  openwrt/files/etc/
         #cp -f .img/SmartdDNS/smartdns.1.2020.02.25-2212.arm-openwrt-all.ipk  openwrt/files/etc/
         #cp -f .img/SmartdDNS/smartdns.1.2020.02.25-2212.mips-openwrt-all.ipk  openwrt/files/etc/
@@ -181,7 +182,7 @@ jobs:
         sed -i 's/R20.2.15/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
         sed -i 's/unameinfo.release/"X86X64-2020"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
         sed -i 's/pcdata(ver.luciname)/"软路由加强版"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-        sed -i 's/pcdata(ver.luciversion)/"2020-02-26"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+        sed -i 's/pcdata(ver.luciversion)/"2020-02-28"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
         sed -i 's/192.168.1.1/192.168.2.1/' package\/base-files\/files\/bin\/config_generate
         ##sed -i 's/WDR7400/WDR7600' package\/base-files\/files\/bin\/config_generate
         sed -i 's/OpenWrt/J1900/' package\/base-files\/files\/bin\/config_generate
