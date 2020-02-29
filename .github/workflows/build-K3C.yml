@@ -66,15 +66,19 @@ jobs:
           # ln -s /mnt/openwrt/feeds ./feeds
           # ln -s /mnt/openwrt/staging_dir ./staging_dir
           df -h
-    - name: Clone source code 复制仓库的源代码
+    - name: Clone source code 复制仓库的源代码https://github.com/coolsnowwolf/lede/tree/master/package/lean
       env: 
-         REPO_URL: https://github.com/coolsnowwolf/lede
-       ##  REPO_URL: https://github.com/openwrt/openwrt
-       ## REPO_URL: https://github.com/openwrt/openwrt
-       ## REPO_URL: https://github.com/a520ass/openwrt
-       ##  REPO_URL: https://github.com/coolsnowwolf/lede
+         REPO_URL: https://github.com/paldier/K3C
+         #REPO_URL: https://github.com/coolsnowwolf/lede
+         #REPO_URL: https://github.com/coolsnowwolf/lede
+         ##  REPO_URL: https://github.com/openwrt/openwrt
+         ## REPO_URL: https://github.com/openwrt/openwrt
+         ## REPO_URL: https://github.com/a520ass/openwrt
+         ##  REPO_URL: https://github.com/coolsnowwolf/lede
          REPO_BRANCH: master
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+           cd openwrt/package/
+           svn checkout https://github.com/coolsnowwolf/lede/trunk/package/lean
 
     - name: Update feeds 更新源
       run: cd openwrt && ./scripts/feeds update -a
