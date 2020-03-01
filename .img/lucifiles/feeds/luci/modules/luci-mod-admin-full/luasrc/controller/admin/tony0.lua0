@@ -1,7 +1,7 @@
 -- Copyright 2019-2020 Tony <tony-cn@outlook.com>
 -- Licensed to the public under the Apache License 2.0. 
 
-module("luci.controller.admin.tony", package.seeall)  
+module("luci.controller.admin.tony", package.seeall) 
 ---➀➁➂➃➄➅➆➇➈➉➊➋➌➍➎➏➐➑➒➓   
 function index()  
     entry({"admin", "tony"}, alias("admin", "tony", "tony"), _("✪Tony"), 80).index = true  
