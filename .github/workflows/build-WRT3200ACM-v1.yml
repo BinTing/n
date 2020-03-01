@@ -6,7 +6,7 @@
 # Blog: https://bit.do/TonyLee
 #=================================================
 #name: OpenWRT for WRT3200ACM-v1-8M
-name: OpenWRT for WRT3200ACM-v1-16M
+name: OpenWRT for WRT3200ACM-v1-32M
 #name: OpenWrt WR703N OpenVPN SSR
 #name: OpenWRT for WA801N-v2-16M
 
@@ -23,8 +23,8 @@ on:
 #    - cron: 0 8 * * 5
 #  watch:
 #    types: [started]
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
@@ -93,8 +93,8 @@ jobs:
           
     - name: Load custom configuration 加载自定义编译配置文件
       env:
-        CONFIG_FILE:  '.img/WRT1900ACS-v1-16M-config'
-       # CONFIG_FILE:  '.img/WRT3200ACM-v1-16Mconfig'
+       # CONFIG_FILE:  '.img/WRT1900ACS-v1-16M-config'
+        CONFIG_FILE:  '.img/WRT3200ACM-v1-16Mconfig'
        # CONFIG_FILE: '.config'
        # CONFIG_FILE: 'OpenWRT-N1.config'  
        # CONFIG_FILE: '.config'   
@@ -110,6 +110,8 @@ jobs:
         rm -rf openwrt/files/etc/uboot.bin
         rm -rf openwrt/files/opt/fcn
         rm -rf openwrt/files/overlay/default.tar.gz
+        rm -rf openwrt/files/usr/lib/lua/luci/view/index.htm
+        
         mv openwrt/files/etc/config/network openwrt/files/etc/config/networWRT3200ACM-v1
         mv openwrt/files/etc/config/wireless openwrt/files/etc/config/wireless2
         
