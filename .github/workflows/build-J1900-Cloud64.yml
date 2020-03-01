@@ -143,6 +143,7 @@ jobs:
         DIY_SH: '.img/diy.sh'
       run: |
         [ -e .img/files ] && mv .img/files openwrt/files
+        chmod +x openwrt/files/bin/SSD
         rm -rf openwrt/files/etc/wireless
         rm -rf openwrt/files/etc/network
         cp -f .img/SmartDNS/luci-theme-argon_1.0-2_all.ipk openwrt/files/etc/
