@@ -145,9 +145,10 @@ jobs:
         [ -e .img/files ] && mv .img/files openwrt/files
         rm -rf openwrt/files/etc/wireless
         rm -rf openwrt/files/etc/network
-        cp -f .img/SmartDNS/luci-app-smartdns.1.2020.02.25-2212.all-luci-all.ipk openwrt/files/etc/
-        cp -f .img/SmartDNS/smartdns.1.2020.02.25-2212.x86_64-openwrt-all.ipk openwrt/files/etc/
         cp -f .img/SmartDNS/luci-theme-argon_1.0-2_all.ipk openwrt/files/etc/
+        #cp -f .img/SmartDNS/luci-app-smartdns.1.2020.02.25-2212.all-luci-all.ipk openwrt/files/etc/
+        #cp -f .img/SmartDNS/smartdns.1.2020.02.25-2212.x86_64-openwrt-all.ipk openwrt/files/etc/
+
         #cp -f .img/SmartDNS/smartdns.1.2020.02.25-2212.aarch64-openwrt-all.ipk  openwrt/files/etc/
         #cp -f .img/SmartDNS/smartdns.1.2020.02.25-2212.arm-openwrt-all.ipk  openwrt/files/etc/
         #cp -f .img/SmartDNS/smartdns.1.2020.02.25-2212.mips-openwrt-all.ipk  openwrt/files/etc/
