@@ -12,7 +12,7 @@
 #name: OpenWRT for N2Plus
 #name: OpenWRT for N2Cloud64
 #name: OpenWRT for N2Cloud86
-name: OpenWRT for K3C-firmware
+name: OpenWRT for K3C
 
 
 on: 
@@ -27,8 +27,8 @@ on:
 #    - cron: 0 8 * * 5
 #  watch:
 #    types: [started]
-#  watch:
-#    types: [started]
+  watch:
+    types: [started]
 
 jobs:
   build:
