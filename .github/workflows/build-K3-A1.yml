@@ -94,8 +94,8 @@ jobs:
     - name: Load custom configuration 加载自定义编译配置文件
       env:
        # CONFIG_FILE:  '.img/WRT1900ACS-v1-16M-config'
-       # CONFIG_FILE:  '.img/K3-v1-16Mconfig'
-        CONFIG_FILE: '.config'
+        CONFIG_FILE:  '.img/K3-A1-32Mconfig'
+       # CONFIG_FILE: '.config'
        # CONFIG_FILE: 'OpenWRT-N1.config'  
        # CONFIG_FILE: '.config'   
        # CONFIG_FILE: '.img/n1config' 
