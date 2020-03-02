@@ -78,8 +78,9 @@ jobs:
          REPO_BRANCH: master
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
       
-           git clone https://github.com/coolsnowwolf/lede.git
-           mv lede/package/lean openwrt/package/
+           #git clone https://github.com/coolsnowwolf/lede.git
+           #mv lede/package/lean openwrt/package/
+           
            #rm -rf lede
            #git init lede && cd lede  
            #git config core.sparse-checkout true     
@@ -114,15 +115,15 @@ jobs:
       run: |
           cd openwrt
           ################################################################
-          mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/
-          mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/
-          mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/
-          mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/
-          mkdir -p feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/
-          mkdir -p package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/
-          mkdir -p package/luci-app-ssr-plus/luasrc/view/shadowsocksr/
-          mkdir -p feeds/luci/modules/luci-base/luasrc/model/
-          mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/
+          #mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/
+          #mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/
+          #mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/
+          #mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/
+          #mkdir -p feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/
+          #mkdir -p package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/
+          #mkdir -p package/luci-app-ssr-plus/luasrc/view/shadowsocksr/
+          #mkdir -p feeds/luci/modules/luci-base/luasrc/model/
+          #mkdir -p feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/
           #mkdir -p 
           #mkdir -p 
           #mkdir -p 
@@ -132,15 +133,15 @@ jobs:
           
           ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
           #sed -i '/tl-wr703n-v1/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
-          sed -i 's/R20.2.15/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
-          sed -i 's/unameinfo.release/"X86X64-2020"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-          sed -i 's/pcdata(ver.luciname)/"软路由加强版"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-          sed -i 's/pcdata(ver.luciversion)/"2020-02-28"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-          sed -i 's/192.168.1.1/192.168.2.1/' package\/base-files\/files\/bin\/config_generate
+          #sed -i 's/R20.2.15/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
+          #sed -i 's/unameinfo.release/"X86X64-2020"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          #sed -i 's/pcdata(ver.luciname)/"软路由加强版"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          #sed -i 's/pcdata(ver.luciversion)/"2020-02-28"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+          #sed -i 's/192.168.1.1/192.168.2.1/' package\/base-files\/files\/bin\/config_generate
           ##sed -i 's/WDR7400/WDR7600' package\/base-files\/files\/bin\/config_generate
-          sed -i 's/OpenWrt/K3C/' package\/base-files\/files\/bin\/config_generate
-          sed -i 's/.ssid=OpenWrt/.ssid=K3C-WiFi/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
-          sed -i 's/.encryption=none/.encryption=psk2\n	    		set wireless.default_radio\${devidx}.key=password\n/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
+          #sed -i 's/OpenWrt/K3C/' package\/base-files\/files\/bin\/config_generate
+          #sed -i 's/.ssid=OpenWrt/.ssid=K3C-WiFi/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
+          #sed -i 's/.encryption=none/.encryption=psk2\n	    		set wireless.default_radio\${devidx}.key=password\n/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
       
     - name: Custom Applications 增加应用软件
       run: |
@@ -172,8 +173,8 @@ jobs:
         [ -e .img/files ] && mv .img/files openwrt/files
         rm -rf openwrt/files/etc/wireless
         rm -rf openwrt/files/etc/network
-        cp -f .img/SmartDNS/luci-app-smartdns.1.2020.02.25-2212.all-luci-all.ipk openwrt/files/etc/
-        cp -f .img/SmartDNS/smartdns.1.2020.02.25-2212.x86_64-openwrt-all.ipk openwrt/files/etc/
+        #cp -f .img/SmartDNS/luci-app-smartdns.1.2020.02.25-2212.all-luci-all.ipk openwrt/files/etc/
+        #cp -f .img/SmartDNS/smartdns.1.2020.02.25-2212.x86_64-openwrt-all.ipk openwrt/files/etc/
         cp -f .img/SmartDNS/luci-theme-argon_1.0-2_all.ipk openwrt/files/etc/
         #cp -f .img/SmartDNS/smartdns.1.2020.02.25-2212.aarch64-openwrt-all.ipk  openwrt/files/etc/
         #cp -f .img/SmartDNS/smartdns.1.2020.02.25-2212.arm-openwrt-all.ipk  openwrt/files/etc/
@@ -181,18 +182,18 @@ jobs:
         #cp -f .img/SmartDNS/smartdns.1.2020.02.25-2212.mipsel-openwrt-all.ipk  openwrt/files/etc/
         #cp -f .img/SmartDNS/smartdns.1.2020.02.25-2212.x86-openwrt-all.ipk  openwrt/files/etc/
           
-        cp -f .img/N1-uboot.bin openwrt/files/etc/uboot.bin
-        cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/{system.lua,tony.lua} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/
-        cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/{flashops.htm,reboot.htm} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/
-        cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/
-        cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/
-        cp -f .img/lucifiles/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/{footer.htm,header.htm}  openwrt/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/
-        cp -f .img/lucifiles/package/lean/luci-theme-argon/htdocs/luci-static/argon/{favicon.ico,logo.png,tony.gif}  openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/
-        cp -f .img/lucifiles/package/lean/luci-theme-argon/htdocs/luci-static/argon/css/style.css  openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/css/
-        cp -f .img/lucifiles/package/lean/luci-theme-argon/luasrc/view/themes/argon/{footer.htm,header.htm}  openwrt/package/lean/luci-theme-argon/luasrc/view/themes/argon/
-        cp -f .img/lucifiles/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/
-        cp -f .img/lucifiles/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c  openwrt/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c
-        cp -f .img/lucifiles/feeds/luci/modules/luci-base/luasrc/model/firewall.lua  openwrt/feeds/luci/modules/luci-base/luasrc/model/firewall.lua
+        #cp -f .img/N1-uboot.bin openwrt/files/etc/uboot.bin
+        #cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/{system.lua,tony.lua} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/controller/admin/
+        #cp -f .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/{flashops.htm,reboot.htm} openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_system/
+        #cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_tony_view/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/view/
+        #cp -f -r .img/lucifiles/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/admin_tony/  openwrt/feeds/luci/modules/luci-mod-admin-full/luasrc/model/cbi/
+        #cp -f .img/lucifiles/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/{footer.htm,header.htm}  openwrt/feeds/luci/themes/luci-theme-bootstrap/luasrc/view/themes/bootstrap/
+        #cp -f .img/lucifiles/package/lean/luci-theme-argon/htdocs/luci-static/argon/{favicon.ico,logo.png,tony.gif}  openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/
+        #cp -f .img/lucifiles/package/lean/luci-theme-argon/htdocs/luci-static/argon/css/style.css  openwrt/package/lean/luci-theme-argon/htdocs/luci-static/argon/css/
+        #cp -f .img/lucifiles/package/lean/luci-theme-argon/luasrc/view/themes/argon/{footer.htm,header.htm}  openwrt/package/lean/luci-theme-argon/luasrc/view/themes/argon/
+        #cp -f .img/lucifiles/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/{ssrurl.htm,status.htm,refresh.htm,check.htm}  openwrt/package/lean/luci-app-ssr-plus/luasrc/view/shadowsocksr/
+        #cp -f .img/lucifiles/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c  openwrt/target/linux/ar71xx/files/drivers/mtd/tplinkpart.c
+        #cp -f .img/lucifiles/feeds/luci/modules/luci-base/luasrc/model/firewall.lua  openwrt/feeds/luci/modules/luci-base/luasrc/model/firewall.lua
         #rm -rf openwrt/files/www/luci-static/resources/pictures
         rm -rf openwrt/files/etc/wireless
         rm -rf openwrt/files/etc/network
@@ -205,15 +206,15 @@ jobs:
         #cd openwrt/
         ## sed -i 's/被替换的内容/要替换成的内容/' package/lean/default-settings/files/zzz-default-setting
         #sed -i '/tl-wr703n-v1/{n;s/tplink-8mlzma/tplink-16mlzma/;}'  target\/linux\/ar71xx\/image\/tiny-tp-link.mk        
-        sed -i 's/R20.2.15/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
-        sed -i 's/unameinfo.release/"X86X64-2020"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-        sed -i 's/pcdata(ver.luciname)/"软路由加强版"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-        sed -i 's/pcdata(ver.luciversion)/"2020-02-28"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
-        sed -i 's/192.168.1.1/192.168.2.1/' package\/base-files\/files\/bin\/config_generate
+        #sed -i 's/R20.2.15/Plus by Tony 2020/' package\/lean\/default-settings\/files\/zzz-default-settings
+        #sed -i 's/unameinfo.release/"X86X64-2020"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+        #sed -i 's/pcdata(ver.luciname)/"软路由加强版"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+        #sed -i 's/pcdata(ver.luciversion)/"2020-02-28"/' feeds\/luci\/modules\/luci-mod-admin-full\/luasrc\/view\/admin_status\/index.htm
+        #sed -i 's/192.168.1.1/192.168.2.1/' package\/base-files\/files\/bin\/config_generate
         ##sed -i 's/WDR7400/WDR7600' package\/base-files\/files\/bin\/config_generate
-        sed -i 's/OpenWrt/K3C/' package\/base-files\/files\/bin\/config_generate
-        sed -i 's/.ssid=OpenWrt/.ssid=K3C-WiFi/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
-        sed -i 's/.encryption=none/.encryption=psk2\n	    		set wireless.default_radio\${devidx}.key=password\n/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
+        #sed -i 's/OpenWrt/K3C/' package\/base-files\/files\/bin\/config_generate
+        #sed -i 's/.ssid=OpenWrt/.ssid=K3C-WiFi/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
+        #sed -i 's/.encryption=none/.encryption=psk2\n	    		set wireless.default_radio\${devidx}.key=password\n/' package\/kernel\/mac80211\/files\/lib\/wifi\/mac80211.sh
     
 
         #make defconfig
